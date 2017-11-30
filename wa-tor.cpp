@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Thu Nov 30 11:26:29 2017 (+0000)
+// Last-Updated: Thu Nov 30 11:37:01 2017 (+0000)
 //           By: Tomas Phelan
-//     Update #: 5
+//     Update #: 10
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -55,7 +55,7 @@
 //windows
 //#include <windows.h>
 #include <limits>
-
+#include <unistd.h>
 using namespace std;
 
 //change these in order to affect the size of the world
@@ -442,7 +442,7 @@ int main()
 
 	clock_t tStart = clock();
 	displayMap();
-	system("CLS");
+	system("clear");
 
 	bool allAlive = true;
 
@@ -450,8 +450,8 @@ int main()
 	{
 		checkOcean();
 		allAlive = displayMap();
-		//Sleep(100); // windows dependent
-		system("CLS");
+		usleep(500000); // windows dependent
+		system("clear");
 	}
 
 	displayMap();
