@@ -1,0 +1,16 @@
+Serial Version			Concurrent Version
+(N x N) size of world
+benchmark with
+- 2 threads, 3 threads, 4 th, 5 th, 6 th, 8 th etc
+
+vary the values of N also to prove that more threads increases performance at any grid size ie N = 40, 80, 160
+
+
+compare time with number of threads
+
+Include number of cores used, type of chipset etseteraaah, etseteraaaah.
+
+Scalability
+Comparison to Serial
+
+Graph showing the relation between grid size and time
