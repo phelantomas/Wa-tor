@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Thu Nov 30 11:37:01 2017 (+0000)
+// Last-Updated: Fri Dec  8 09:11:18 2017 (+0000)
 //           By: Tomas Phelan
-//     Update #: 10
+//     Update #: 13
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -52,8 +52,6 @@
 #include <stdlib.h>    
 #include <time.h> 
 #include <chrono>
-//windows
-//#include <windows.h>
 #include <limits>
 #include <unistd.h>
 using namespace std;
@@ -71,6 +69,9 @@ int sharkBreed = 0;
 int sharkStarve = 0;
 int fishBreed = 0;
 
+/*! 
+Brief: Checks if a shark has eaten, if not, the shark will be removed
+*/
 void checkStarve(int i, int j, int x, int y, int ate, int foundShark) {
 	int dead = 0;
 	//if shark has reached its starve limit, check if it has eaten
@@ -105,6 +106,9 @@ void checkStarve(int i, int j, int x, int y, int ate, int foundShark) {
 	}	
 }
 
+/*! 
+Brief: Shark checks whether
+*/
 int find(int newLoc, int i, int j, int *x, int *y, Animal temp[8]) {
 	int foundFish = 0;
 	int ate = 0;
@@ -360,6 +364,9 @@ void checkOcean() {
 	}
 }
 
+/*! 
+Brief: Return the number input by the user
+*/
 int returnNumber() {
 	int number = 0;
 	
@@ -378,8 +385,6 @@ int main()
 	//Creating a map already populated with some sharks and fish
 	populateMap();
 
-	//Cost of overhead for parallelizing this segment produces a diminishing return
-	// numOfSharkstoCreate
 	//cout enter in number of sharks 
 	//replace with random
 	int numOfSharks = 0;
@@ -417,6 +422,7 @@ int main()
 	}
 	else {
 		while (numOfSharksCreated != numOfSharks && numOfFishCreated != numOfFish) {
+		  #pragma omp parallel for
 			for (int i = 0; i < rows; i++)
 				for (int j = 0; j < columns; j++) {
 					int newAnimal = rand() % 3;
@@ -450,7 +456,7 @@ int main()
 	{
 		checkOcean();
 		allAlive = displayMap();
-		usleep(500000); // windows dependent
+		usleep(500000); 
 		system("clear");
 	}
 
