@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Fri Dec  8 09:11:18 2017 (+0000)
+// Last-Updated: Sun Dec 10 15:31:10 2017 (+0000)
 //           By: Tomas Phelan
-//     Update #: 13
+//     Update #: 21
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -17,7 +17,11 @@
 // 
 // 
 
-// Commentary: 
+// Commentary:
+//
+//
+// Todo:
+// Move wrapping feature into stand alone method
 // 
 // 
 // 
@@ -69,6 +73,28 @@ int sharkBreed = 0;
 int sharkStarve = 0;
 int fishBreed = 0;
 
+void wrap(int *a, int *b, int *c, int *d, int i, int j){
+        *a = i - 1;
+        *b = j - 1;
+        *c = i + 1;
+	*d = j + 1;
+
+	//wraps
+	if (*a < 0) {
+		*a = rows - 1;
+	}
+	if (*b < 0) {
+		*b = columns - 1;
+	}
+	if (*a > rows - 1) {
+		*a = 0;
+	}
+	if (*b > columns - 1) {
+		*b = 0;
+	}
+}
+
+
 /*! 
 Brief: Checks if a shark has eaten, if not, the shark will be removed
 */
@@ -107,7 +133,7 @@ void checkStarve(int i, int j, int x, int y, int ate, int foundShark) {
 }
 
 /*! 
-Brief: Shark checks whether
+Brief: Shark checks whether anything is in it's adjecent fields
 */
 int find(int newLoc, int i, int j, int *x, int *y, Animal temp[8]) {
 	int foundFish = 0;
@@ -186,7 +212,6 @@ int find(int newLoc, int i, int j, int *x, int *y, Animal temp[8]) {
 	}
 
 	
-	//return shark
 	if (foundFreeSpace == 0) {
 		*y = i;
 		*x = j;
@@ -194,27 +219,18 @@ int find(int newLoc, int i, int j, int *x, int *y, Animal temp[8]) {
 	return foundShark;
 }
 
+/*!
+Brief: Calls all functions for a shark
+ */
 void sharkTurn(int i, int j) {
 
 	//pick a random adjacent square to move into-------------------------------
-	int a = i - 1;
-	int b = j - 1;
-	int c = i + 1;
-	int d = j + 1;
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
 
-	//wraps
-	if (a < 0) {
-		a = rows - 1;
-	}
-	if (b < 0) {
-		b = columns - 1;
-	}
-	if (a > rows - 1) {
-		a = 0;
-	}
-	if (b > columns - 1) {
-		b = 0;
-	}
+	wrap(&a, &b, &c, &d, i, j);
 
 	Animal temp[8] = { ocean[i][d], ocean[c][d], ocean[c][j], ocean[c][b],
 		ocean[i][b], ocean[a][b], ocean[a][j], ocean[a][d] };
@@ -236,19 +252,12 @@ void sharkTurn(int i, int j) {
 
 void fishTurn(int i, int j) {
 	//pick a random adjacent square to move into-------------------------------
-	int a = i - 1;
-	int b = j - 1;
-	int c = i + 1;
-	int d = j + 1;
+        int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
 
-	if (a < 0)
-		a = rows - 1;
-	if (b < 0)
-		b = columns - 1;
-	if (a > rows - 1)
-		a = 0;
-	if (b > columns - 1)
-		b = 0;
+	wrap(&a, &b, &c, &d, i, j);
 
 	Animal temp[8] = { ocean[i][d], ocean[c][d], ocean[c][j], ocean[c][b],
 		ocean[i][b], ocean[a][b], ocean[a][j], ocean[a][d] };
