@@ -15,6 +15,25 @@ Wa-tor.cpp
 
 > - This is the main application source file.
 
+Animal.cpp
+
+> **Note:**
+
+> - This is used to differentiate between a fish, shark, or water. 
+
+Animal.h
+
+> **Note:**
+
+> - Header file for Animal.cpp
+
+Makefile
+
+> **Note:**
+
+> - Uses g++ to compile and debug C++ code
+
+
 #### <i class="icon-file"></i> Code running in serial
 
 Graphs will be put here

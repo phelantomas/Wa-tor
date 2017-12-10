@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Sun Dec 10 15:51:42 2017 (+0000)
+// Last-Updated: Sun Dec 10 17:57:57 2017 (+0000)
 //           By: Tomas Phelan
-//     Update #: 23
+//     Update #: 24
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -21,7 +21,7 @@
 //
 //
 // Todo:
-// Move wrapping feature into stand alone method
+// 
 // 
 // 
 // 
