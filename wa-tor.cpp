@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Sun Dec 10 15:31:10 2017 (+0000)
+// Last-Updated: Sun Dec 10 15:51:42 2017 (+0000)
 //           By: Tomas Phelan
-//     Update #: 21
+//     Update #: 23
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -63,7 +63,7 @@ using namespace std;
 //change these in order to affect the size of the world
 int const rows = 25;
 int const columns = 40;
-//potentially a vector required for dynamic world size
+
 char map[rows][columns];
 Animal ocean[rows][columns];
 int fishLife = 20;
@@ -73,6 +73,9 @@ int sharkBreed = 0;
 int sharkStarve = 0;
 int fishBreed = 0;
 
+/*!
+Brief: Wraps around the map
+ */
 void wrap(int *a, int *b, int *c, int *d, int i, int j){
         *a = i - 1;
         *b = j - 1;
@@ -135,7 +138,7 @@ void checkStarve(int i, int j, int x, int y, int ate, int foundShark) {
 /*! 
 Brief: Shark checks whether anything is in it's adjecent fields
 */
-int find(int newLoc, int i, int j, int *x, int *y, Animal temp[8]) {
+int findAnimals(int newLoc, int i, int j, int *x, int *y, Animal temp[8]) {
 	int foundFish = 0;
 	int ate = 0;
 	int foundFreeSpace = 0;
@@ -245,7 +248,7 @@ void sharkTurn(int i, int j) {
 	int ate = 0;
 	int dead = 0;
 
-	foundShark = find(newLoc, i, j, &x, &y, temp);
+	foundShark = findAnimals(newLoc, i, j, &x, &y, temp);
 	//starves to death
 	checkStarve(i, j, x, y, ate, foundShark);
 }
