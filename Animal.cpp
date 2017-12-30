@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:10:28 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Thu Nov 30 11:23:34 2017 (+0000)
+// Last-Updated: Sat Dec 30 15:25:36 2017 (+0000)
 //           By: Tomas Phelan
-//     Update #: 2
+//     Update #: 5
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -65,6 +65,7 @@ void Animal::makeAnimal(int t, int i, int j) {
 	turn = 0;
 	moved = 0;
 	spawned = 0;
+	foundPartner = 0;
 
 }
 
@@ -78,6 +79,25 @@ char Animal::showAnimal()
 		return '&';
 }
 
+void Animal::wrap(int *a, int *b, int *c, int *d, int i, int j,int rows, int columns){
+        *a = i - 1;
+        *b = j - 1;
+        *c = i + 1;
+	*d = j + 1;
 
+	//wraps
+	if (*a < 0) {
+		*a = rows - 1;
+	}
+	if (*b < 0) {
+		*b = columns - 1;
+	}
+	if (*a > rows - 1) {
+		*a = 0;
+	}
+	if (*b > columns - 1) {
+		*b = 0;
+	}
+}
 // 
 // Animal.cpp ends here

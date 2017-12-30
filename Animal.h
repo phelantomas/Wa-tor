@@ -7,9 +7,9 @@
  * Created: Thu Nov 30 11:09:30 2017 (+0000)
  * Version: 
  * Package-Requires: ()
- * Last-Updated: Thu Nov 30 11:09:48 2017 (+0000)
+ * Last-Updated: Mon Dec 11 11:25:09 2017 (+0000)
  *           By: Tomas Phelan
- *     Update #: 1
+ *     Update #: 2
  * URL: 
  * Doc URL: 
  * Keywords: 
@@ -55,11 +55,13 @@ public:
 	int x;
 	int y;
 	int spawned;
+	int foundPartner;
 	Animal();
 	~Animal();
 	char showAnimal();
 	bool checkAlive();
 	void makeAnimal(int t, int i, int j);
+	void wrap(int *a, int *b, int *c, int *d, int i, int j, int rows, int columns);
 
 };
 
