@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Sat Dec 30 16:20:29 2017 (+0000)
+// Last-Updated: Sat Dec 30 16:16:33 2017 (+0000)
 //           By: Tomas Phelan
-//     Update #: 49
+//     Update #: 46
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -70,6 +70,30 @@ int moves = 0;
 int sharkBreed = 0;
 int sharkStarve = 0;
 int fishBreed = 0;
+
+/*!
+Brief: Wraps around the map
+*/
+void wrap(int *a, int *b, int *c, int *d, int i, int j) {
+	*a = i - 1;
+	*b = j - 1;
+	*c = i + 1;
+	*d = j + 1;
+
+	//wraps
+	if (*a < 0) {
+		*a = rows - 1;
+	}
+	if (*b < 0) {
+		*b = columns - 1;
+	}
+	if (*a > rows - 1) {
+		*a = 0;
+	}
+	if (*b > columns - 1) {
+		*b = 0;
+	}
+}
 
 int findPartner(int x, int y, int type, Animal temp[8]) {
 	int found = 0;
@@ -206,7 +230,7 @@ void moveFish(int i, int j) {
 	int c = 0;
 	int d = 0;
 
-	ocean[i][j].wrap(&a, &b, &c, &d, i, j, rows, columns);
+        ocean[i][j].wrap(&a, &b, &c, &d, i, j, rows, columns);
 
 	Animal temp[8] = { ocean[i][d], ocean[c][d], ocean[c][j], ocean[c][b],
 		ocean[i][b], ocean[a][b], ocean[a][j], ocean[a][d] };

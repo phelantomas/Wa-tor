@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:10:28 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Sat Dec 30 15:25:36 2017 (+0000)
+// Last-Updated: Sat Dec 30 16:17:58 2017 (+0000)
 //           By: Tomas Phelan
-//     Update #: 5
+//     Update #: 6
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -79,7 +79,7 @@ char Animal::showAnimal()
 		return '&';
 }
 
-void Animal::wrap(int *a, int *b, int *c, int *d, int i, int j,int rows, int columns){
+void Animal::wrap(int *a, int *b, int *c, int *d, int i, int j, int rows, int columns){
         *a = i - 1;
         *b = j - 1;
         *c = i + 1;
