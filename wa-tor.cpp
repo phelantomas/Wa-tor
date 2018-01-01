@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Mon Jan  1 17:55:56 2018 (+0000)
+// Last-Updated: Mon Jan  1 18:38:08 2018 (+0000)
 //           By: Tomas Phelan
-//     Update #: 84
+//     Update #: 87
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -81,7 +81,7 @@ double finishTime = 0;
 
 void writeToFile(double finishTime){
   ofstream myfile;
-  myfile.open("example.txt", ios::app);
+  myfile.open("runtime.txt", ios::app);
   myfile << fixed << setprecision(17) << finishTime << "\n";
   myfile.close();
   
@@ -365,8 +365,6 @@ int main()
 	
 	//cout enter in number of sharks 
 	//replace with random
-	int numOfSharks = 0;
-	int numOfFish = 0;
 
 	int numOfSharksCreated = 0;
 	int numOfFishCreated = 0;
@@ -376,7 +374,9 @@ int main()
 
 	maxAnimalsAllowed = rows * columns;
 
-	std::cout << "Enter in number of sharks wanted: ";
+	//commented out to run python script a 1000 times
+
+	/*!	std::cout << "Enter in number of sharks wanted: ";
 	numOfSharks = returnNumber();
 
 	std::cout << "Enter in breed time of sharks wanted: ";
@@ -391,8 +391,11 @@ int main()
 	std::cout << "Enter in breed time of fish wanted: ";
 	fishBreed = returnNumber();
 
+	*/
+
 	numOfAnimalsEntered = numOfSharks + numOfFish;
 
+   
 	if (numOfAnimalsEntered > maxAnimalsAllowed) {
 		std::cout << "Too many animals entered ";
 		system("pause");
