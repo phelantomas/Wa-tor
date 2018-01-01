@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Sat Dec 30 16:20:29 2017 (+0000)
+// Last-Updated: Mon Jan  1 17:55:56 2018 (+0000)
 //           By: Tomas Phelan
-//     Update #: 49
+//     Update #: 84
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -51,6 +51,7 @@
 
 #include <omp.h>
 #include <iostream>
+#include <fstream>
 #include "Animal.h"
 #include <stdio.h>
 #include <stdlib.h>    
@@ -58,8 +59,10 @@
 #include <chrono>
 #include <limits>
 #include <unistd.h>
+#include <iomanip>
 using namespace std;
 
+//default values
 int const rows = 25;
 int const columns = 40;
 char map[rows][columns];
@@ -67,9 +70,22 @@ Animal ocean[rows][columns];
 int fishLife = 20;
 int sharkLife = 25;
 int moves = 0;
-int sharkBreed = 0;
-int sharkStarve = 0;
-int fishBreed = 0;
+int sharkBreed = 6;
+int sharkStarve = 25;
+int fishBreed = 2;
+
+int numOfSharks = 50;
+int numOfFish = 100;
+
+double finishTime = 0;
+
+void writeToFile(double finishTime){
+  ofstream myfile;
+  myfile.open("example.txt", ios::app);
+  myfile << fixed << setprecision(17) << finishTime << "\n";
+  myfile.close();
+  
+}
 
 int findPartner(int x, int y, int type, Animal temp[8]) {
 	int found = 0;
@@ -384,7 +400,7 @@ int main()
 	}
 	else {
 		while (numOfSharksCreated != numOfSharks && numOfFishCreated != numOfFish) {
-//#pragma omp parallel for
+                #pragma omp parallel for
 			for (int i = 0; i < rows; i++)
 				for (int j = 0; j < columns; j++) {
 					int newAnimal = rand() % 3;
@@ -413,7 +429,7 @@ int main()
 	system("CLS");
 
 	bool allAlive = true;
-	while (allAlive)/*! execute while there are shark, fish, or a year hasn't elasped*/
+	while (moves < 10)/*! execute while there are shark, fish, or a year hasn't elasped*/
 	{
 		checkOcean();
 		allAlive = displayMap();
@@ -422,9 +438,13 @@ int main()
 	}
 
 	displayMap();
+	finishTime = (clock() - tStart) / (double) CLOCKS_PER_SEC;
+	writeToFile(finishTime);
 	cout << "Fish life(#): " << fishLife << "    Shark life(m): " << sharkLife << "    Grid size: " << rows << 'x' << columns << std::endl;
-	printf("Time taken to execute: %.2fs\n", (double)(clock() - tStart) / CLOCKS_PER_SEC);
-	system("pause");
+	printf("Time taken to execute: \n");
+
+	cout.precision(17);
+	cout <<  finishTime << endl;
 	return 0;
 }
 
