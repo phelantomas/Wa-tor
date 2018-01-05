@@ -40,7 +40,7 @@ Graphs will be put here
 
 #### <i class="icon-file"></i> Code running in parrallel
 
-Graphs here
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/barchart.png)
 
 
 
