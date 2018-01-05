@@ -1,7 +1,7 @@
 import os
 
 #need to change paths to work for you
-for i in range(2):
+for i in range(1000):
 	os.system('/home/tomas/Wa-tor/Wa-tor/DangerZone')
 
 with open("runtime.txt") as f:

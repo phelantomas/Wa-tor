@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Mon Jan  1 18:38:08 2018 (+0000)
+// Last-Updated: Fri Jan  5 15:20:26 2018 (+0000)
 //           By: Tomas Phelan
-//     Update #: 87
+//     Update #: 104
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -63,8 +63,8 @@
 using namespace std;
 
 //default values
-int const rows = 25;
-int const columns = 40;
+int const rows = 35;
+int const columns = 60;
 char map[rows][columns];
 Animal ocean[rows][columns];
 int fishLife = 20;
@@ -74,8 +74,8 @@ int sharkBreed = 6;
 int sharkStarve = 25;
 int fishBreed = 2;
 
-int numOfSharks = 50;
-int numOfFish = 100;
+int numOfSharks = 500;
+int numOfFish = 1000;
 
 double finishTime = 0;
 
@@ -432,11 +432,11 @@ int main()
 	system("CLS");
 
 	bool allAlive = true;
-	while (moves < 10)/*! execute while there are shark, fish, or a year hasn't elasped*/
+	while (moves < 800)/*! execute while there are shark, fish, or a year hasn't elasped*/
 	{
 		checkOcean();
 		allAlive = displayMap();
-		usleep(500000);
+		//	usleep(500000);
 		system("CLS");	
 	}
 
