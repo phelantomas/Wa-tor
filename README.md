@@ -43,6 +43,10 @@ Graphs will be put here
 
 ![alt text](https://github.com/phelantomas/Wa-tor/blob/master/barchart.png)
 
+(18 x 30) Size of World
+
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/barchart2.png)
+
 
 
 
