@@ -39,6 +39,7 @@ Makefile
 Graphs will be put here
 
 #### <i class="icon-file"></i> Code running in parrallel
+(35 x 60) Size of World
 
 ![alt text](https://github.com/phelantomas/Wa-tor/blob/master/barchart.png)
 
