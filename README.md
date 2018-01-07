@@ -39,9 +39,8 @@ Makefile
 Graphs will be put here
 
 #### <i class="icon-file"></i> Code running in parrallel
-> **Note:**
+> **System Specs:**
 
-> - System Specs
 > - Ram : 3541
 > - Processor : Intel(R) Core(TN) i7-4700HQ CPU @ 2.40GHz
 > - OS : Ubuntu
