@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Fri Jan  5 15:20:26 2018 (+0000)
+// Last-Updated: Sun Jan  7 12:23:53 2018 (+0000)
 //           By: Tomas Phelan
-//     Update #: 104
+//     Update #: 115
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -63,8 +63,8 @@
 using namespace std;
 
 //default values
-int const rows = 35;
-int const columns = 60;
+int const rows = 18;
+int const columns = 30;
 char map[rows][columns];
 Animal ocean[rows][columns];
 int fishLife = 20;
@@ -74,11 +74,14 @@ int sharkBreed = 6;
 int sharkStarve = 25;
 int fishBreed = 2;
 
-int numOfSharks = 500;
-int numOfFish = 1000;
+int numOfSharks = 150;
+int numOfFish = 200;
 
 double finishTime = 0;
 
+/*!
+Brief : Writes the finish time to a file
+ */
 void writeToFile(double finishTime){
   ofstream myfile;
   myfile.open("runtime.txt", ios::app);
@@ -87,6 +90,9 @@ void writeToFile(double finishTime){
   
 }
 
+/*!
+Brief: Searches for an animal type that is the same as itself
+*/
 int findPartner(int x, int y, int type, Animal temp[8]) {
 	int found = 0;
 	int newLoc = rand() % 8;
@@ -112,6 +118,9 @@ int findPartner(int x, int y, int type, Animal temp[8]) {
 	return found;
 }
 
+/*!
+Brief: Does the sharks turn 
+ */
 void moveShark(int i, int j) {
 	int a = 0;
 	int b = 0;
@@ -215,6 +224,9 @@ void moveShark(int i, int j) {
 	}
 }
 
+/*!
+Brief: Does the fish turn
+ */
 void moveFish(int i, int j) {
 
 	int a = 0;
@@ -278,8 +290,9 @@ void moveFish(int i, int j) {
 	}
 }
 
-
-
+/*!
+Brief: Creates map as empty
+ */
 void populateMap() {
 #pragma omp parallel for
 	for (int i = 0; i < rows; i++) {
@@ -291,6 +304,9 @@ void populateMap() {
 }
 
 using namespace std;
+/*!
+Brief:  Displays the current location of animals, and their count
+ */
 bool displayMap() {
 	int fishCount = 0;
 	int sharkCount = 0;
@@ -314,6 +330,9 @@ bool displayMap() {
 	return true;
 }
 
+/*!
+Brief: Calls the turns for the animals
+ */
 void checkOcean() {
 #pragma omp parallel for
 	for (int i = 0; i < rows; i++) {
@@ -395,7 +414,9 @@ int main()
 
 	numOfAnimalsEntered = numOfSharks + numOfFish;
 
-   
+	/*!
+	  Puts animals into the map
+	 */
 	if (numOfAnimalsEntered > maxAnimalsAllowed) {
 		std::cout << "Too many animals entered ";
 		system("pause");
@@ -432,7 +453,7 @@ int main()
 	system("CLS");
 
 	bool allAlive = true;
-	while (moves < 800)/*! execute while there are shark, fish, or a year hasn't elasped*/
+	while (moves < 800)/*! execute while under 800 turns*/
 	{
 		checkOcean();
 		allAlive = displayMap();
@@ -441,8 +462,8 @@ int main()
 	}
 
 	displayMap();
-	finishTime = (clock() - tStart) / (double) CLOCKS_PER_SEC;
-	writeToFile(finishTime);
+	//finishTime = (clock() - tStart) / (double) CLOCKS_PER_SEC;
+	//writeToFile(finishTime);
 	cout << "Fish life(#): " << fishLife << "    Shark life(m): " << sharkLife << "    Grid size: " << rows << 'x' << columns << std::endl;
 	printf("Time taken to execute: \n");
 
