@@ -39,6 +39,13 @@ Makefile
 Graphs will be put here
 
 #### <i class="icon-file"></i> Code running in parrallel
+> **Note:**
+
+> - System Specs
+> - Ram : 3541
+> - Processor : Intel(R) Core(TN) i7-4700HQ CPU @ 2.40GHz
+> - OS : Ubuntu
+
 (35 x 60) Size of World
 
 ![alt text](https://github.com/phelantomas/Wa-tor/blob/master/barchart.png)
