@@ -1,0 +1,195 @@
+\hypertarget{wa-tor_8cpp}{}\section{wa-\/tor.cpp File Reference}
+\label{wa-tor_8cpp}\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include \char`\"{}Animal.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
+{\ttfamily \#include $<$limits$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$iomanip$>$}\\*
+Include dependency graph for wa-\/tor.cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wa-tor_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{wa-tor_8cpp_a87c9b3649865243c358781b9ba5a63ef}{write\+To\+File} (double \hyperlink{wa-tor_8cpp_a7cc6537125267d34b92ee58c7d5fa264}{finish\+Time})
+\item 
+int \hyperlink{wa-tor_8cpp_ac9c4c92d69ed70ac460b756440fc78ac}{find\+Partner} (int x, int y, int type, \hyperlink{class_animal}{Animal} temp\mbox{[}8\mbox{]})
+\item 
+void \hyperlink{wa-tor_8cpp_aa170cf839bf56d3c8a4b1e3ccf6885b9}{move\+Shark} (int i, int j)
+\item 
+void \hyperlink{wa-tor_8cpp_a89d4d5007ecb60011e978769f110d321}{move\+Fish} (int i, int j)
+\item 
+void \hyperlink{wa-tor_8cpp_a97e8c1c739a32ed95b9a7d50a53c52f7}{populate\+Map} ()
+\item 
+bool \hyperlink{wa-tor_8cpp_a9b90639a814dc879557d7ca2b4a8f188}{display\+Map} ()
+\item 
+void \hyperlink{wa-tor_8cpp_a9608986b5ab97722f2ebb5dccf5c83d2}{check\+Ocean} ()
+\item 
+int \hyperlink{wa-tor_8cpp_a662b974739cd0c3ab43007ea6530f4a8}{return\+Number} ()
+\item 
+int \hyperlink{wa-tor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int const \hyperlink{wa-tor_8cpp_a586c34fe492dfaa733327c99e8cef1a7}{rows} = 35
+\item 
+int const \hyperlink{wa-tor_8cpp_a257ffd4af4f5b4a1792800a1da461fff}{columns} = 60
+\item 
+char \hyperlink{wa-tor_8cpp_a00bd8baeb581f6c8c6184c92b0514093}{map} \mbox{[}\hyperlink{wa-tor_8cpp_a586c34fe492dfaa733327c99e8cef1a7}{rows}\mbox{]}\mbox{[}\hyperlink{wa-tor_8cpp_a257ffd4af4f5b4a1792800a1da461fff}{columns}\mbox{]}
+\item 
+\hyperlink{class_animal}{Animal} \hyperlink{wa-tor_8cpp_ab8d425e802a7efbde7aee8ec63cf4109}{ocean} \mbox{[}\hyperlink{wa-tor_8cpp_a586c34fe492dfaa733327c99e8cef1a7}{rows}\mbox{]}\mbox{[}\hyperlink{wa-tor_8cpp_a257ffd4af4f5b4a1792800a1da461fff}{columns}\mbox{]}
+\item 
+int \hyperlink{wa-tor_8cpp_ae43dd048cc055db4f5afb2e51cda10d0}{fish\+Life} = 20
+\item 
+int \hyperlink{wa-tor_8cpp_a96baa8a35a57c2160fc29962b37e55b0}{shark\+Life} = 25
+\item 
+int \hyperlink{wa-tor_8cpp_a750943ec425a1b8104d0ed4a6f4073d3}{moves} = 0
+\item 
+int \hyperlink{wa-tor_8cpp_afe6bb1e77490b7b4d687dfebbffc0cba}{shark\+Breed} = 6
+\item 
+int \hyperlink{wa-tor_8cpp_a19573e234a78bbb14760f70a56297b97}{shark\+Starve} = 25
+\item 
+int \hyperlink{wa-tor_8cpp_a698d64c39d139b47bf8f1640d821b8b6}{fish\+Breed} = 2
+\item 
+int \hyperlink{wa-tor_8cpp_a8061b966958cc5112773ab457c12519f}{num\+Of\+Sharks} = 500
+\item 
+int \hyperlink{wa-tor_8cpp_a025064445afb61c29cfa42c27fe243ec}{num\+Of\+Fish} = 1000
+\item 
+double \hyperlink{wa-tor_8cpp_a7cc6537125267d34b92ee58c7d5fa264}{finish\+Time} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!check\+Ocean@{check\+Ocean}}
+\index{check\+Ocean@{check\+Ocean}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{check\+Ocean()}{checkOcean()}}]{\setlength{\rightskip}{0pt plus 5cm}void check\+Ocean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_a9608986b5ab97722f2ebb5dccf5c83d2}{}\label{wa-tor_8cpp_a9608986b5ab97722f2ebb5dccf5c83d2}
+Brief\+: Calls the turns for the animals \index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!display\+Map@{display\+Map}}
+\index{display\+Map@{display\+Map}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{display\+Map()}{displayMap()}}]{\setlength{\rightskip}{0pt plus 5cm}bool display\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_a9b90639a814dc879557d7ca2b4a8f188}{}\label{wa-tor_8cpp_a9b90639a814dc879557d7ca2b4a8f188}
+Brief\+: Displays the current location of animals, and their count \index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!find\+Partner@{find\+Partner}}
+\index{find\+Partner@{find\+Partner}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{find\+Partner(int x, int y, int type, Animal temp[8])}{findPartner(int x, int y, int type, Animal temp[8])}}]{\setlength{\rightskip}{0pt plus 5cm}int find\+Partner (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{type, }
+\item[{{\bf Animal}}]{temp\mbox{[}8\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_ac9c4c92d69ed70ac460b756440fc78ac}{}\label{wa-tor_8cpp_ac9c4c92d69ed70ac460b756440fc78ac}
+Brief\+: Searches for an animal type that is the same as itself \index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!main@{main}}
+\index{main@{main}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{wa-tor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+std\+::cout $<$$<$ \char`\"{}\+Enter in number of sharks wanted\+: \char`\"{}; num\+Of\+Sharks = \hyperlink{wa-tor_8cpp_a662b974739cd0c3ab43007ea6530f4a8}{return\+Number()};
+
+std\+::cout $<$$<$ \char`\"{}\+Enter in breed time of sharks wanted\+: \char`\"{}; shark\+Breed = \hyperlink{wa-tor_8cpp_a662b974739cd0c3ab43007ea6530f4a8}{return\+Number()};
+
+std\+::cout $<$$<$ \char`\"{}\+Enter in starve time of sharks wanted\+: \char`\"{}; shark\+Starve = \hyperlink{wa-tor_8cpp_a662b974739cd0c3ab43007ea6530f4a8}{return\+Number()};
+
+std\+::cout $<$$<$ \char`\"{}\+Enter in number of fishies wanted\+: \char`\"{}; num\+Of\+Fish = \hyperlink{wa-tor_8cpp_a662b974739cd0c3ab43007ea6530f4a8}{return\+Number()};
+
+std\+::cout $<$$<$ \char`\"{}\+Enter in breed time of fish wanted\+: \char`\"{}; fish\+Breed = \hyperlink{wa-tor_8cpp_a662b974739cd0c3ab43007ea6530f4a8}{return\+Number()};
+
+Puts animals into the map
+
+execute while under 800 turns \index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!move\+Fish@{move\+Fish}}
+\index{move\+Fish@{move\+Fish}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{move\+Fish(int i, int j)}{moveFish(int i, int j)}}]{\setlength{\rightskip}{0pt plus 5cm}void move\+Fish (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_a89d4d5007ecb60011e978769f110d321}{}\label{wa-tor_8cpp_a89d4d5007ecb60011e978769f110d321}
+Brief\+: Does the fish turn \index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!move\+Shark@{move\+Shark}}
+\index{move\+Shark@{move\+Shark}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{move\+Shark(int i, int j)}{moveShark(int i, int j)}}]{\setlength{\rightskip}{0pt plus 5cm}void move\+Shark (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_aa170cf839bf56d3c8a4b1e3ccf6885b9}{}\label{wa-tor_8cpp_aa170cf839bf56d3c8a4b1e3ccf6885b9}
+Brief\+: Does the sharks turn \index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!populate\+Map@{populate\+Map}}
+\index{populate\+Map@{populate\+Map}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{populate\+Map()}{populateMap()}}]{\setlength{\rightskip}{0pt plus 5cm}void populate\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_a97e8c1c739a32ed95b9a7d50a53c52f7}{}\label{wa-tor_8cpp_a97e8c1c739a32ed95b9a7d50a53c52f7}
+Brief\+: Creates map as empty \index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!return\+Number@{return\+Number}}
+\index{return\+Number@{return\+Number}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{return\+Number()}{returnNumber()}}]{\setlength{\rightskip}{0pt plus 5cm}int return\+Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_a662b974739cd0c3ab43007ea6530f4a8}{}\label{wa-tor_8cpp_a662b974739cd0c3ab43007ea6530f4a8}
+Brief\+: Return the number input by the user \index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!write\+To\+File@{write\+To\+File}}
+\index{write\+To\+File@{write\+To\+File}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{write\+To\+File(double finish\+Time)}{writeToFile(double finishTime)}}]{\setlength{\rightskip}{0pt plus 5cm}void write\+To\+File (
+\begin{DoxyParamCaption}
+\item[{double}]{finish\+Time}
+\end{DoxyParamCaption}
+)}\hypertarget{wa-tor_8cpp_a87c9b3649865243c358781b9ba5a63ef}{}\label{wa-tor_8cpp_a87c9b3649865243c358781b9ba5a63ef}
+Brief \+: Writes the finish time to a file 
+
+\subsection{Variable Documentation}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!columns@{columns}}
+\index{columns@{columns}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{columns}{columns}}]{\setlength{\rightskip}{0pt plus 5cm}int const columns = 60}\hypertarget{wa-tor_8cpp_a257ffd4af4f5b4a1792800a1da461fff}{}\label{wa-tor_8cpp_a257ffd4af4f5b4a1792800a1da461fff}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!finish\+Time@{finish\+Time}}
+\index{finish\+Time@{finish\+Time}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{finish\+Time}{finishTime}}]{\setlength{\rightskip}{0pt plus 5cm}double finish\+Time = 0}\hypertarget{wa-tor_8cpp_a7cc6537125267d34b92ee58c7d5fa264}{}\label{wa-tor_8cpp_a7cc6537125267d34b92ee58c7d5fa264}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!fish\+Breed@{fish\+Breed}}
+\index{fish\+Breed@{fish\+Breed}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{fish\+Breed}{fishBreed}}]{\setlength{\rightskip}{0pt plus 5cm}int fish\+Breed = 2}\hypertarget{wa-tor_8cpp_a698d64c39d139b47bf8f1640d821b8b6}{}\label{wa-tor_8cpp_a698d64c39d139b47bf8f1640d821b8b6}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!fish\+Life@{fish\+Life}}
+\index{fish\+Life@{fish\+Life}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{fish\+Life}{fishLife}}]{\setlength{\rightskip}{0pt plus 5cm}int fish\+Life = 20}\hypertarget{wa-tor_8cpp_ae43dd048cc055db4f5afb2e51cda10d0}{}\label{wa-tor_8cpp_ae43dd048cc055db4f5afb2e51cda10d0}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!map@{map}}
+\index{map@{map}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{map}{map}}]{\setlength{\rightskip}{0pt plus 5cm}char map\mbox{[}{\bf rows}\mbox{]}\mbox{[}{\bf columns}\mbox{]}}\hypertarget{wa-tor_8cpp_a00bd8baeb581f6c8c6184c92b0514093}{}\label{wa-tor_8cpp_a00bd8baeb581f6c8c6184c92b0514093}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!moves@{moves}}
+\index{moves@{moves}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{moves}{moves}}]{\setlength{\rightskip}{0pt plus 5cm}int moves = 0}\hypertarget{wa-tor_8cpp_a750943ec425a1b8104d0ed4a6f4073d3}{}\label{wa-tor_8cpp_a750943ec425a1b8104d0ed4a6f4073d3}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!num\+Of\+Fish@{num\+Of\+Fish}}
+\index{num\+Of\+Fish@{num\+Of\+Fish}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{num\+Of\+Fish}{numOfFish}}]{\setlength{\rightskip}{0pt plus 5cm}int num\+Of\+Fish = 1000}\hypertarget{wa-tor_8cpp_a025064445afb61c29cfa42c27fe243ec}{}\label{wa-tor_8cpp_a025064445afb61c29cfa42c27fe243ec}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!num\+Of\+Sharks@{num\+Of\+Sharks}}
+\index{num\+Of\+Sharks@{num\+Of\+Sharks}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{num\+Of\+Sharks}{numOfSharks}}]{\setlength{\rightskip}{0pt plus 5cm}int num\+Of\+Sharks = 500}\hypertarget{wa-tor_8cpp_a8061b966958cc5112773ab457c12519f}{}\label{wa-tor_8cpp_a8061b966958cc5112773ab457c12519f}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!ocean@{ocean}}
+\index{ocean@{ocean}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{ocean}{ocean}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Animal} ocean\mbox{[}{\bf rows}\mbox{]}\mbox{[}{\bf columns}\mbox{]}}\hypertarget{wa-tor_8cpp_ab8d425e802a7efbde7aee8ec63cf4109}{}\label{wa-tor_8cpp_ab8d425e802a7efbde7aee8ec63cf4109}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!rows@{rows}}
+\index{rows@{rows}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{rows}{rows}}]{\setlength{\rightskip}{0pt plus 5cm}int const rows = 35}\hypertarget{wa-tor_8cpp_a586c34fe492dfaa733327c99e8cef1a7}{}\label{wa-tor_8cpp_a586c34fe492dfaa733327c99e8cef1a7}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!shark\+Breed@{shark\+Breed}}
+\index{shark\+Breed@{shark\+Breed}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{shark\+Breed}{sharkBreed}}]{\setlength{\rightskip}{0pt plus 5cm}int shark\+Breed = 6}\hypertarget{wa-tor_8cpp_afe6bb1e77490b7b4d687dfebbffc0cba}{}\label{wa-tor_8cpp_afe6bb1e77490b7b4d687dfebbffc0cba}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!shark\+Life@{shark\+Life}}
+\index{shark\+Life@{shark\+Life}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{shark\+Life}{sharkLife}}]{\setlength{\rightskip}{0pt plus 5cm}int shark\+Life = 25}\hypertarget{wa-tor_8cpp_a96baa8a35a57c2160fc29962b37e55b0}{}\label{wa-tor_8cpp_a96baa8a35a57c2160fc29962b37e55b0}
+\index{wa-\/tor.\+cpp@{wa-\/tor.\+cpp}!shark\+Starve@{shark\+Starve}}
+\index{shark\+Starve@{shark\+Starve}!wa-\/tor.\+cpp@{wa-\/tor.\+cpp}}
+\subsubsection[{\texorpdfstring{shark\+Starve}{sharkStarve}}]{\setlength{\rightskip}{0pt plus 5cm}int shark\+Starve = 25}\hypertarget{wa-tor_8cpp_a19573e234a78bbb14760f70a56297b97}{}\label{wa-tor_8cpp_a19573e234a78bbb14760f70a56297b97}
