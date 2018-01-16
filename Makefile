@@ -4,7 +4,7 @@
 #See http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/ for info.
 
 CC=g++
-CFLAGS= -std=c++11 -pthread
+CFLAGS= -std=c++11 -pthread -pg
 HFILES= Animal.h
 CPPFILES= Animal.cpp wa-tor.cpp
 

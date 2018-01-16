@@ -1,23 +1,15 @@
 import os
+import time
 
-#need to change paths to work for you
-for i in range(1000):
+loop_times = 100
+start_time = time.time()
+for i in range(loop_times):
 	os.system('/home/tomas/Wa-tor/Wa-tor/DangerZone')
+end_time = time.time()
 
-with open("runtime.txt") as f:
-	content = f.readlines()
+print("Total time taken this loop: ", end_time - start_time)
+print("Average time taken through this loop: ", (end_time - start_time) / loop_times)
 
-#Delete file after reading it
-os.remove('/home/tomas/Wa-tor/Wa-tor/runtime.txt')
 
-content = [x.strip() for x in content]
-
-content = [float(i) for i in content]
-
-with open("averageRuntime.txt", 'a') as f:
-	f.write(str(sum(content) / float(len(content))))
-	
-
-print("The average runtime is ", sum(content) / float(len(content)))
 
 

@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Sun Jan  7 12:23:53 2018 (+0000)
+// Last-Updated: Sun Jan 14 21:34:19 2018 (+0000)
 //           By: Tomas Phelan
-//     Update #: 115
+//     Update #: 137
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -49,7 +49,7 @@
 
 // Code:
 
-#include <omp.h>
+//#include <omp.h>
 #include <iostream>
 #include <fstream>
 #include "Animal.h"
@@ -63,19 +63,19 @@
 using namespace std;
 
 //default values
-int const rows = 18;
-int const columns = 30;
+int const rows = 35;
+int const columns = 60;
 char map[rows][columns];
 Animal ocean[rows][columns];
-int fishLife = 20;
+int fishLife = 25;
 int sharkLife = 25;
 int moves = 0;
-int sharkBreed = 6;
+int sharkBreed = 15;
 int sharkStarve = 25;
-int fishBreed = 2;
+int fishBreed = 13;
 
-int numOfSharks = 150;
-int numOfFish = 200;
+int numOfSharks = 40;
+int numOfFish = 150;
 
 double finishTime = 0;
 
@@ -96,11 +96,11 @@ Brief: Searches for an animal type that is the same as itself
 int findPartner(int x, int y, int type, Animal temp[8]) {
 	int found = 0;
 	int newLoc = rand() % 8;
-
+	//going to eventually change the y x to see if it works still
 	for (int pos = newLoc; pos < 7; pos++) {
 		x = temp[pos].x;
 		y = temp[pos].y;
-		if (ocean[y][x].type == type) {
+		if (ocean[x][y].type == type) {
 			found = 1;
 			break;
 		}
@@ -109,7 +109,7 @@ int findPartner(int x, int y, int type, Animal temp[8]) {
 		for (int pos = newLoc; pos > 0; pos--) {
 			x = temp[pos].x;
 			y = temp[pos].y;
-			if (ocean[y][x].type == type) {
+			if (ocean[x][y].type == type) {
 				found = 1;
 				break;
 			}
@@ -141,59 +141,58 @@ void moveShark(int i, int j) {
 	int noFish = 0;
 	int ate = 0;
 	int dead = 0;
-
+	/*!check surrounding spaces clockwise*/
 	for (int pos = newLoc; pos < 7; pos++) {
 		x = temp[pos].x;
 		y = temp[pos].y;
-		if (ocean[y][x].type == 1) {
+		if (ocean[x][y].type == 1) {
 			foundFish = 1;
-			ocean[y][x].makeAnimal(0, y, x);
+			ocean[x][y].makeAnimal(0, x, y);
 			ate = 1;
 			break;
 		}
 	}
-
+	/*!check surrounding squares counter-clockwise if fish not found*/
 	if (foundFish == 0) {
 		for (int pos = newLoc; pos > 0; pos--) {
 			x = temp[pos].x;
 			y = temp[pos].y;
-			if (ocean[y][x].type == 1) {
+			if (ocean[x][y].type == 1) {
 				foundFish = 1;
-				ocean[y][x].makeAnimal(0, y, x);
+				ocean[x][y].makeAnimal(0, x, y);
 				ate = 1;
 				break;
 			}
 		}
 	}
-
-
-	if (foundFish == 0) {
+	/*!this is where the shark moves, changed foundFish to found(ie found space to move to)*/
+	if (found == 0) {//changed because this if controls access to next 2 blocks of code, if eaten, can't move?
 		for (int pos = newLoc; pos < 7; pos++) {
 			x = temp[pos].x;
 			y = temp[pos].y;
-			if (ocean[y][x].type == 0) {
+			if (ocean[x][y].type == 0) {
+			        found = 1;
 				break;
 			}
 		}
-
 		if (found == 0) {
 			for (int pos = newLoc; pos > 0; pos--) {
 				x = temp[pos].x;
 				y = temp[pos].y;
-				if (ocean[y][x].type == 0) {
+				if (ocean[x][y].type == 0) {
 					found = 1;
 					break;
 				}
 			}
 		}
 	}
-
+	
 	if (found == 0) {
 		y = i;
 		x = j;
 	}
-
-	if (ocean[i][j].turn > 0 && ocean[i][j].turn % 4 == 0)
+	/*!was turn % 4 for seemingly no reason, now based on sharkStarve to determine if it starves*/
+	if (ocean[i][j].turn > 0 && ocean[i][j].turn % sharkStarve == 0)
 	{
 		if (ate == 0) {
 			dead = 1;
@@ -205,21 +204,22 @@ void moveShark(int i, int j) {
 	if (ocean[i][j].turn < sharkLife) {
 		ocean[i][j].turn++;
 		ocean[i][j].moved = 1;
-		ocean[y][x] = ocean[i][j];
-		if (y != i || j != x)
+		ocean[x][y] = ocean[i][j];
+		if (x != i || j != y)//if the shark moved, remove object from previous position, otherwise do nothing
 			ocean[i][j].makeAnimal(0, i, j);
 	}
-	else {
+	else {//if sharkLife exceeded, die of old age, in bed, surrounded by family, RIP Jaws
 		dead = 1;
 	}
 	//breeds new shark
-	ocean[y][x].foundPartner = findPartner(x, y, 2, temp);
-	if (ocean[y][x].turn > sharkBreed && ocean[y][x].spawned == 0 && ocean[y][x].foundPartner == 1) {
-		ocean[y][x].foundPartner = 0;
-		ocean[y][x].spawned = 1;
-		ocean[i][j].makeAnimal(2, i, j);
+	ocean[x][y].foundPartner = findPartner(x, y, 2, temp);
+	//changing to modulo sharkBreed to allow multiple breeds
+	if (ocean[x][y].turn % sharkBreed == 0  && ocean[x][y].foundPartner == 1) {
+		ocean[x][y].foundPartner = 0;
+		ocean[x][y].spawned = 1;//if moved spawns on previous position? Also spawned not used for anything?
+		ocean[i][j].makeAnimal(2, i, j);//if hasn't moved, breeds on own position? Overwrites self
 	}
-	if (dead == 1) {
+	if (dead == 1) {//murder
 		ocean[i][j].makeAnimal(0, i, j);
 	}
 }
@@ -246,46 +246,46 @@ void moveFish(int i, int j) {
 	for (int pos = newLoc; pos < 7; pos++) {
 		x = temp[pos].x;
 		y = temp[pos].y;
-		if (ocean[y][x].type == 0) {
+		if (ocean[x][y].type == 0) {
 			found = 1;
 			break;
 		}
 	}
-
 	if (found == 0) {
 		for (int pos = newLoc; pos > 0; pos--) {
 			x = temp[pos].x;
 			y = temp[pos].y;
-			if (ocean[y][x].type == 0) {
+			if (ocean[x][y].type == 0) {
 				found = 1;
 				break;
 			}
 		}
 	}
-
+	//is actually needed to fix values of x and y to original position
 	if (found == 0) {
-		y = i;
-		x = j;
+	        x = i;
+		y = j;
 	}
 	//------------------------------------------------------------------------------------------
 
 
 	if (ocean[i][j].turn < fishLife) {
 		ocean[i][j].turn++;
-		ocean[i][j].moved = 1;
-		ocean[y][x] = ocean[i][j];
-		if (y != i || j != x)
+		ocean[i][j].moved = 1;//even if technically didn't move, had turn
+		ocean[x][y] = ocean[i][j];
+		if (y != i || j != x)//if fish has moved, void previous location
 			ocean[i][j].makeAnimal(0, i, j);
 	}
-	else {
+	else {//murder fish in cold blood, and water
 		ocean[i][j].makeAnimal(0, i, j);
 	}
 
 	//breeds fish
-	ocean[y][x].foundPartner = findPartner(x, y, 1, temp);
-	if (ocean[y][x].turn > fishBreed && ocean[y][x].spawned == 0 && ocean[y][x].foundPartner == 1) {
-		ocean[y][x].foundPartner = 0;
-		ocean[y][x].spawned = 1;
+       	ocean[x][y].foundPartner = findPartner(x, y, 1, temp);
+	//changing to modulo, same as shark above
+	if (ocean[x][y].turn % fishBreed == 0 && ocean[x][y].foundPartner == 1) { // && ocean[x][y].foundPartner == 1
+		ocean[x][y].foundPartner = 0;
+		ocean[x][y].spawned = 1;//only allow to spawn once?
 		ocean[i][j].makeAnimal(1, i, j);
 	}
 }
@@ -411,11 +411,12 @@ int main()
 	fishBreed = returnNumber();
 
 	*/
-
-	numOfAnimalsEntered = numOfSharks + numOfFish;
+	// not needed when input commented out
+	//numOfAnimalsEntered = numOfSharks + numOfFish;
 
 	/*!
 	  Puts animals into the map
+	  if will never pass without user input
 	 */
 	if (numOfAnimalsEntered > maxAnimalsAllowed) {
 		std::cout << "Too many animals entered ";
@@ -443,23 +444,23 @@ int main()
 							}
 						}
 					}
-
 				}
 		}
 	}
 
 	clock_t tStart = clock();
 	displayMap();
-	system("CLS");
+	system("clear");
 
 	bool allAlive = true;
 	while (moves < 800)/*! execute while under 800 turns*/
 	{
 		checkOcean();
 		allAlive = displayMap();
-		//	usleep(500000);
-		system("CLS");	
+		usleep(50000);
+		system("clear");	
 	}
+	system("clear");
 
 	displayMap();
 	//finishTime = (clock() - tStart) / (double) CLOCKS_PER_SEC;
@@ -471,6 +472,7 @@ int main()
 	cout <<  finishTime << endl;
 	return 0;
 }
+
 
 
 

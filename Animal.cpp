@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:10:28 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Sat Dec 30 16:17:58 2017 (+0000)
+// Last-Updated: Sat Jan 13 19:41:11 2018 (+0000)
 //           By: Tomas Phelan
-//     Update #: 6
+//     Update #: 7
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -60,8 +60,8 @@ Animal::~Animal()
 
 void Animal::makeAnimal(int t, int i, int j) {
 	type = t;
-	x = j;
-	y = i;
+	y = j;
+	x = i;
 	turn = 0;
 	moved = 0;
 	spawned = 0;
