@@ -36,9 +36,9 @@ Makefile
 
 #### <i class="icon-file"></i> Code running in serial
 
-> **Note:**
-> Flat profile:
-> Each sample counts as 0.01 seconds.
+> **Note:**  
+> Flat profile:  
+> Each sample counts as 0.01 seconds.  
 >   %   cumulative   self              self     total           
 >  time   seconds   seconds    calls  ms/call  ms/call  name    
 >  33.36      0.01     0.01   274453     0.00     0.00  frame_dummy  
