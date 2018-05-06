@@ -40,9 +40,10 @@ Makefile
 #### <i class="icon-file"></i> Code running in parrallel
 > **System Specs:**
 
-> - Ram : 3541
+> - Ram : 3541MB
 > - Processor : Intel(R) Core(TN) i7-4700HQ CPU @ 2.40GHz
 > - OS : Ubuntu
+> - Cores : 3
 
 (35 x 60) Size of World
 
@@ -52,6 +53,16 @@ Makefile
 
 ![alt text](https://github.com/phelantomas/Wa-tor/blob/master/barchart2.png)
 
+> - Ram : 2780MB
+> - Processor : Intel Core i5-6200U CPU @ 2.40GHz
+> - OS : Ubuntu
+> - Cores: 1
 
+(35 x 60) Size of World
 
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Barchart3.png)
+
+(18 x 30) Size of World
+
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Barchart4.png)
 

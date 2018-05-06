@@ -7,9 +7,9 @@
 // Created: Thu Nov 30 11:07:19 2017 (+0000)
 // Version: 
 // Package-Requires: ()
-// Last-Updated: Sun Jan 14 21:34:19 2018 (+0000)
-//           By: Tomas Phelan
-//     Update #: 137
+// Last-Updated: Sun May  6 14:08:25 2018 (+0100)
+//           By: Jake
+//     Update #: 145
 // URL: 
 // Doc URL: 
 // Keywords: 
@@ -63,8 +63,8 @@
 using namespace std;
 
 //default values
-int const rows = 35;
-int const columns = 60;
+int const rows = 18;
+int const columns = 30;
 char map[rows][columns];
 Animal ocean[rows][columns];
 int fishLife = 25;
@@ -78,6 +78,8 @@ int numOfSharks = 40;
 int numOfFish = 150;
 
 double finishTime = 0;
+
+
 
 /*!
 Brief : Writes the finish time to a file
@@ -425,7 +427,7 @@ int main()
 	}
 	else {
 		while (numOfSharksCreated != numOfSharks && numOfFishCreated != numOfFish) {
-                #pragma omp parallel for
+#pragma omp parallel for
 			for (int i = 0; i < rows; i++)
 				for (int j = 0; j < columns; j++) {
 					int newAnimal = rand() % 3;
