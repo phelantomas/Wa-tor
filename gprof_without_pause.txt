@@ -1,0 +1,104 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 83.39      0.05     0.05   402017     0.00     0.00  moveFish(int, int)
+ 16.68      0.06     0.01  3228636     0.00     0.00  Animal::~Animal()
+  0.00      0.06     0.00   705642     0.00     0.00  Animal::makeAnimal(int, int, int)
+  0.00      0.06     0.00   634200     0.00     0.00  Animal::showAnimal()
+  0.00      0.06     0.00   403317     0.00     0.00  findPartner(int, int, int, Animal*)
+  0.00      0.06     0.00   403317     0.00     0.00  Animal::wrap(int*, int*, int*, int*, int, int, int, int)
+  0.00      0.06     0.00     2100     0.00     0.00  Animal::Animal()
+  0.00      0.06     0.00     1300     0.00     0.00  moveShark(int, int)
+  0.00      0.06     0.00      302     0.00     0.00  displayMap()
+  0.00      0.06     0.00      300     0.00     0.00  checkOcean()
+  0.00      0.06     0.00        1     0.00    60.04  _GLOBAL__sub_I_map
+  0.00      0.06     0.00        1     0.00     0.00  populateMap()
+  0.00      0.06     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.06     0.00        1     0.00     0.00  std::ios_base::precision(long)
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) for 16.65% of 0.06 seconds
+
+index % time    self  children    called     name
+                0.00    0.06       1/1           __libc_csu_init [2]
+[1]    100.0    0.00    0.06       1         _GLOBAL__sub_I_map [1]
+                0.05    0.01  402017/402017      moveFish(int, int) [3]
+                0.00    0.00    1300/1300        moveShark(int, int) [5]
+                0.00    0.00    2290/705642      Animal::makeAnimal(int, int, int) [14]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [22]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]    100.0    0.00    0.06                 __libc_csu_init [2]
+                0.00    0.06       1/1           _GLOBAL__sub_I_map [1]
+-----------------------------------------------
+                0.05    0.01  402017/402017      _GLOBAL__sub_I_map [1]
+[3]     99.9    0.05    0.01  402017         moveFish(int, int) [3]
+                0.01    0.00 3216136/3228636     Animal::~Animal() [4]
+                0.00    0.00  701939/705642      Animal::makeAnimal(int, int, int) [14]
+                0.00    0.00  402017/403317      Animal::wrap(int*, int*, int*, int*, int, int, int, int) [17]
+                0.00    0.00  402017/403317      findPartner(int, int, int, Animal*) [16]
+-----------------------------------------------
+                0.00    0.00    2100/3228636     __tcf_0 [6]
+                0.00    0.00   10400/3228636     moveShark(int, int) [5]
+                0.01    0.00 3216136/3228636     moveFish(int, int) [3]
+[4]     16.7    0.01    0.00 3228636         Animal::~Animal() [4]
+-----------------------------------------------
+                0.00    0.00    1300/1300        _GLOBAL__sub_I_map [1]
+[5]      0.1    0.00    0.00    1300         moveShark(int, int) [5]
+                0.00    0.00   10400/3228636     Animal::~Animal() [4]
+                0.00    0.00    1413/705642      Animal::makeAnimal(int, int, int) [14]
+                0.00    0.00    1300/403317      Animal::wrap(int*, int*, int*, int*, int, int, int, int) [17]
+                0.00    0.00    1300/403317      findPartner(int, int, int, Animal*) [16]
+-----------------------------------------------
+                                                 <spontaneous>
+[6]      0.0    0.00    0.00                 __tcf_0 [6]
+                0.00    0.00    2100/3228636     Animal::~Animal() [4]
+-----------------------------------------------
+                0.00    0.00    1413/705642      moveShark(int, int) [5]
+                0.00    0.00    2290/705642      _GLOBAL__sub_I_map [1]
+                0.00    0.00  701939/705642      moveFish(int, int) [3]
+[14]     0.0    0.00    0.00  705642         Animal::makeAnimal(int, int, int) [14]
+-----------------------------------------------
+                0.00    0.00  634200/634200      displayMap() [19]
+[15]     0.0    0.00    0.00  634200         Animal::showAnimal() [15]
+-----------------------------------------------
+                0.00    0.00    1300/403317      moveShark(int, int) [5]
+                0.00    0.00  402017/403317      moveFish(int, int) [3]
+[16]     0.0    0.00    0.00  403317         findPartner(int, int, int, Animal*) [16]
+-----------------------------------------------
+                0.00    0.00    1300/403317      moveShark(int, int) [5]
+                0.00    0.00  402017/403317      moveFish(int, int) [3]
+[17]     0.0    0.00    0.00  403317         Animal::wrap(int*, int*, int*, int*, int, int, int, int) [17]
+-----------------------------------------------
+                0.00    0.00    2100/2100        __static_initialization_and_destruction_0(int, int) [22]
+[18]     0.0    0.00    0.00    2100         Animal::Animal() [18]
+-----------------------------------------------
+                0.00    0.00     302/302         main [12]
+[19]     0.0    0.00    0.00     302         displayMap() [19]
+                0.00    0.00  634200/634200      Animal::showAnimal() [15]
+-----------------------------------------------
+                0.00    0.00     300/300         main [12]
+[20]     0.0    0.00    0.00     300         checkOcean() [20]
+-----------------------------------------------
+                0.00    0.00       1/1           main [12]
+[21]     0.0    0.00    0.00       1         populateMap() [21]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I_map [1]
+[22]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [22]
+                0.00    0.00    2100/2100        Animal::Animal() [18]
+-----------------------------------------------
+                0.00    0.00       1/1           main [12]
+[23]     0.0    0.00    0.00       1         std::ios_base::precision(long) [23]
+-----------------------------------------------
+
+Index by function name
+
+   [1] _GLOBAL__sub_I_map     [22] __static_initialization_and_destruction_0(int, int) [17] Animal::wrap(int*, int*, int*, int*, int, int, int, int)
+  [20] checkOcean()            [3] moveFish(int, int)     [18] Animal::Animal()
+  [19] displayMap()            [5] moveShark(int, int)     [4] Animal::~Animal()
+  [16] findPartner(int, int, int, Animal*) [14] Animal::makeAnimal(int, int, int) [23] std::ios_base::precision(long)
+  [21] populateMap()          [15] Animal::showAnimal()

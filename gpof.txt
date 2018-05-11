@@ -1,0 +1,104 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 83.39      0.05     0.05      303     0.17     0.20  moveFish(int, int)
+ 16.68      0.06     0.01  3230736     0.00     0.00  __do_global_dtors_aux
+  0.00      0.06     0.00   705642     0.00     0.00  frame_dummy
+  0.00      0.06     0.00   634200     0.00     0.00  Animal::makeAnimal(int, int, int)
+  0.00      0.06     0.00   403317     0.00     0.00  writeToFile(double)
+  0.00      0.06     0.00   403317     0.00     0.00  Animal::showAnimal()
+  0.00      0.06     0.00   402017     0.00     0.00  moveShark(int, int)
+  0.00      0.06     0.00     1300     0.00     0.00  findPartner(int, int, int, Animal*)
+  0.00      0.06     0.00      300     0.00     0.00  displayMap()
+  0.00      0.06     0.00        1     0.00    59.81  __static_initialization_and_destruction_0(int, int)
+  0.00      0.06     0.00        1     0.00     0.00  std::ios_base::setf(std::_Ios_Fmtflags, std::_Ios_Fmtflags)
+  0.00      0.06     0.00        1     0.00    59.81  main
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) for 16.65% of 0.06 seconds
+
+index % time    self  children    called     name
+                0.00    0.00       1/303         returnNumber() [6]
+                0.05    0.01     302/303         main [4]
+[1]     99.9    0.05    0.01     303         moveFish(int, int) [1]
+                0.01    0.00 3216136/3230736     __do_global_dtors_aux [5]
+                0.00    0.00  701939/705642      frame_dummy [9]
+                0.00    0.00  402017/403317      Animal::showAnimal() [17]
+                0.00    0.00  402017/403317      writeToFile(double) [16]
+-----------------------------------------------
+                0.00    0.06       1/1           std::setprecision(int) [3]
+[2]     99.6    0.00    0.06       1         __static_initialization_and_destruction_0(int, int) [2]
+                0.00    0.06       1/1           main [4]
+                0.00    0.00    2100/3230736     __do_global_dtors_aux [5]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]     99.6    0.00    0.06                 std::setprecision(int) [3]
+                0.00    0.06       1/1           __static_initialization_and_destruction_0(int, int) [2]
+-----------------------------------------------
+                0.00    0.06       1/1           __static_initialization_and_destruction_0(int, int) [2]
+[4]     99.6    0.00    0.06       1         main [4]
+                0.05    0.01     302/303         moveFish(int, int) [1]
+                0.00    0.00    2100/3230736     __do_global_dtors_aux [5]
+                0.00    0.00     300/300         displayMap() [19]
+                0.00    0.00       1/1           std::ios_base::setf(std::_Ios_Fmtflags, std::_Ios_Fmtflags) [20]
+-----------------------------------------------
+                0.00    0.00    2100/3230736     main [4]
+                0.00    0.00    2100/3230736     __static_initialization_and_destruction_0(int, int) [2]
+                0.00    0.00   10400/3230736     moveShark(int, int) [7]
+                0.01    0.00 3216136/3230736     moveFish(int, int) [1]
+[5]     16.7    0.01    0.00 3230736         __do_global_dtors_aux [5]
+-----------------------------------------------
+                                                 <spontaneous>
+[6]      0.3    0.00    0.00                 returnNumber() [6]
+                0.00    0.00       1/303         moveFish(int, int) [1]
+-----------------------------------------------
+                0.00    0.00  402017/402017      _GLOBAL__sub_I_map [8]
+[7]      0.1    0.00    0.00  402017         moveShark(int, int) [7]
+                0.00    0.00   10400/3230736     __do_global_dtors_aux [5]
+                0.00    0.00    1413/705642      frame_dummy [9]
+                0.00    0.00    1300/403317      Animal::showAnimal() [17]
+                0.00    0.00    1300/403317      writeToFile(double) [16]
+-----------------------------------------------
+                                                 <spontaneous>
+[8]      0.1    0.00    0.00                 _GLOBAL__sub_I_map [8]
+                0.00    0.00  402017/402017      moveShark(int, int) [7]
+                0.00    0.00    2290/705642      frame_dummy [9]
+                0.00    0.00    1300/1300        findPartner(int, int, int, Animal*) [18]
+-----------------------------------------------
+                0.00    0.00    1413/705642      moveShark(int, int) [7]
+                0.00    0.00    2290/705642      _GLOBAL__sub_I_map [8]
+                0.00    0.00  701939/705642      moveFish(int, int) [1]
+[9]      0.0    0.00    0.00  705642         frame_dummy [9]
+-----------------------------------------------
+                0.00    0.00  634200/634200      displayMap() [19]
+[15]     0.0    0.00    0.00  634200         Animal::makeAnimal(int, int, int) [15]
+-----------------------------------------------
+                0.00    0.00    1300/403317      moveShark(int, int) [7]
+                0.00    0.00  402017/403317      moveFish(int, int) [1]
+[16]     0.0    0.00    0.00  403317         writeToFile(double) [16]
+-----------------------------------------------
+                0.00    0.00    1300/403317      moveShark(int, int) [7]
+                0.00    0.00  402017/403317      moveFish(int, int) [1]
+[17]     0.0    0.00    0.00  403317         Animal::showAnimal() [17]
+-----------------------------------------------
+                0.00    0.00    1300/1300        _GLOBAL__sub_I_map [8]
+[18]     0.0    0.00    0.00    1300         findPartner(int, int, int, Animal*) [18]
+-----------------------------------------------
+                0.00    0.00     300/300         main [4]
+[19]     0.0    0.00    0.00     300         displayMap() [19]
+                0.00    0.00  634200/634200      Animal::makeAnimal(int, int, int) [15]
+-----------------------------------------------
+                0.00    0.00       1/1           main [4]
+[20]     0.0    0.00    0.00       1         std::ios_base::setf(std::_Ios_Fmtflags, std::_Ios_Fmtflags) [20]
+-----------------------------------------------
+
+Index by function name
+
+  [19] displayMap()            [1] moveFish(int, int)     [20] std::ios_base::setf(std::_Ios_Fmtflags, std::_Ios_Fmtflags)
+  [18] findPartner(int, int, int, Animal*) [7] moveShark(int, int) [5] __do_global_dtors_aux
+  [16] writeToFile(double)    [15] Animal::makeAnimal(int, int, int) [9] frame_dummy
+   [2] __static_initialization_and_destruction_0(int, int) [17] Animal::showAnimal() [4] main
