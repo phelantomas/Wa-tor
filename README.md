@@ -39,7 +39,7 @@ Files
 
 ![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/NoOfThreadsChart.png)
 
-![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/NoPauseChart.png)
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/NoPauseCharts.png)
 
 (18 x 30) Size of World
 
