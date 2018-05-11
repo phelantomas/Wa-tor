@@ -41,7 +41,7 @@ Files
 
 (18 x 30) Size of World
 
-![alt text](https://github.com/phelantomas/Wa-tor/blob/master/barchart2.png)
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/SmallWorld.png)
 
 > - Ram : 2780MB
 > - Processor : Intel Core i5-6200U CPU @ 2.40GHz
