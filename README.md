@@ -50,8 +50,8 @@ Files
 
 (35 x 60) Size of World
 
-![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Barchart3.png)
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/JakeWorld.png)
 
 (18 x 30) Size of World
 
-![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Barchart4.png)
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/JakeSWorld.png)
