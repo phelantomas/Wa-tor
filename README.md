@@ -4,7 +4,7 @@ Wat-tor Simulation
 This is a short program used to simulate the conditions and relationship between sharks and fishes in an ecosystem. It is being developed in C++, and OpenMp.
 
 ----------
-
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/wator.png)
 
 Files
 -------------
