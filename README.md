@@ -64,6 +64,10 @@ Files
 > - OS : Ubuntu
 > - Cores: 1
 
+(40 x 70) Size of World
+
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/JakeSSWorld.png)
+
 (35 x 60) Size of World
 
 ![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/JakeWorld.png)
