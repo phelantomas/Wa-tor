@@ -1,7 +1,22 @@
 Wat-tor Simulation
 ===================
+### Overview
+This is a short program used to simulate the conditions and relationship between sharks and fishes in an ecosystem. The goal is to implement it utlising threads and bench mark the results.
 
-This is a short program used to simulate the conditions and relationship between sharks and fishes in an ecosystem. It is being developed in C++, and OpenMp.
+The world will be mapped using 2d arrays and will be made up of objects that are either sharks, fish, or water.
+
+To measure the speed of the program, it will be run through a 1000 iterations, and the average time will be taken, and documented using graphs.
+
+### Tools & Environment
+> - C++ for the main project code
+> - Python for scripts
+> - Emacs for the  IDE
+> - g++ for the compiler
+> - Doxygen for the documentation
+> - OpenMp for multithreading
+> - Gprof for profiling
+>  - Plotly for the Graphs
+>  - Ubuntu 16.04 for the operating system
 
 ----------
 ![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/wator.PNG)
