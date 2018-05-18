@@ -70,8 +70,10 @@ Files
 
 (35 x 60) Size of World
 
-![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/JakeWorld.png)
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/JakeSWorld.png)
 
 (18 x 30) Size of World
 
-![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/JakeSWorld.png)
+![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/JakeWorld.png)
+
+
