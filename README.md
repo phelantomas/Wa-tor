@@ -19,6 +19,7 @@ To measure the speed of the program, it will be run through a 1000 iterations, a
 >  - Ubuntu 16.04 for the operating system
 
 ----------
+### Snapshot
 ![alt text](https://github.com/phelantomas/Wa-tor/blob/master/Charts/wator.PNG)
 
 Files
